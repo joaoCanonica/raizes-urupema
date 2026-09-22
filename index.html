@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RAÍZES URUPEMA | Gastronomia da Serra</title>
+  <meta name="description" content="Hambúrgueres autorais, fondue e hospitalidade com identidade da Serra Catarinense, em Urupema." />
+  <meta name="author" content="RAÍZES URUPEMA" />
+  <meta property="og:title" content="RAÍZES URUPEMA | Gastronomia da Serra" />
+  <meta property="og:description" content="Uma experiência gastronômica feita de origem, fogo e afeto em Urupema." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="site">
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner">
+        <a href="#inicio" class="brand" aria-label="RAÍZES URUPEMA — início">
+          <img src="assets/482685051_623795050626260_3210924371191532665_n_-_Copia.png" alt="Símbolo oficial RAÍZES" />
+          <span class="brand-name">RAÍZES <small>URUPEMA</small></span>
+        </a>
+        <nav class="main-nav" aria-label="Navegação principal">
+          <a href="#restaurante" class="nav-link">História</a>
+          <a href="#gastronomia" class="nav-link">Sabores</a>
+          <a href="#galeria" class="nav-link">Galeria</a>
+          <a href="#contato" class="nav-link">Contato</a>
+        </nav>
+        <div class="header-actions">
+          <a href="#contato" class="btn btn-gold">Pedir / Reservar</a>
+          <button type="button" class="btn btn-ghost menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+            <svg class="icon icon-lg" id="menuIconOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            <svg class="icon icon-lg icon-hidden" id="menuIconClose" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" hidden aria-label="Navegação móvel">
+        <a href="#restaurante">História</a>
+        <a href="#gastronomia">Sabores</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#contato">Contato</a>
+        <a href="#contato" class="btn btn-gold">Pedir / Reservar</a>
+      </nav>
+    </header>
+
+    <!-- ===================== HERO ===================== -->
+    <section id="inicio" class="hero">
+      <div class="hero-media" id="heroMedia">
+        <video
+          class="hero-video"
+          id="heroVideo"
+          src="assets/video-hero-burger.mp4"
+          poster="assets/802503629_17966573148153104_5516428622665713317_n_1.png"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          aria-label="Vídeo de abertura RAÍZES: montagem do hambúrguer artesanal com bacon e cheddar"
+        ></video>
+      </div>
+      <div class="hero-overlay bg-hero-overlay"></div>
+      <div class="hero-ring"></div>
+      <div class="hero-content" id="heroContent">
+        <p class="eyebrow">Urupema · Serra Catarinense</p>
+        <h1 class="hero-title">RAÍZES<br /><span class="accent">URUPEMA</span></h1>
+        <div class="hero-row">
+          <p class="hero-tagline">Gastronomia com identidade da Serra.</p>
+          <a href="#restaurante" class="hero-scroll">Scroll
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 01 — RESTAURANTE ===================== -->
+    <section id="restaurante" class="section-shell bg-cream">
+      <div class="section-head">
+        <span class="number">01</span>
+        <span class="label">O restaurante</span>
+      </div>
+      <div class="restaurante-grid" data-reveal>
+        <div class="restaurante-text">
+          <p class="eyebrow">Origem, fogo e afeto</p>
+          <h2 class="title-display">Uma experiência<br /><em>com raízes.</em></h2>
+          <p class="body-copy">Em Urupema, cada encontro à mesa carrega o ritmo da serra. Ingredientes honestos, preparo cuidadoso e uma hospitalidade que aquece — para comer sem pressa e guardar na memória.</p>
+        </div>
+        <figure class="restaurante-figure">
+          <img src="assets/475942782_17894026002153104_267748791669483891_n_1.png" alt="Hambúrguer duplo RAÍZES com cheddar e batatas" />
+          <figcaption><span>RAÍZES Gastrôbar</span><span>Urupema, SC</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== 02 — MANIFESTO ===================== -->
+    <section class="manifesto bg-deep">
+      <div class="manifesto-ring"></div>
+      <div class="manifesto-inner" data-reveal="scale">
+        <div class="section-head dark">
+          <span class="number">02</span>
+          <span class="label">Manifesto</span>
+        </div>
+        <p class="manifesto-text">Não é apenas<br />um hambúrguer.<br /><em>É uma experiência.</em></p>
+      </div>
+    </section>
+
+    <!-- ===================== 03 — GASTRONOMIA ===================== -->
+    <section id="gastronomia" class="section-shell bg-background">
+      <div class="section-head">
+        <span class="number">03</span>
+        <span class="label">Gastronomia</span>
+      </div>
+      <div class="gastronomia-grid" data-reveal>
+        <div class="img-table-wrap">
+          <img class="img-table" src="assets/566030978_17923373562153104_2081072187815283587_n_1.png" alt="Hambúrgueres autorais servidos em panela" />
+        </div>
+        <div class="gastronomia-text">
+          <h2 class="title-display">Da cozinha<br /><em>para a mesa.</em></h2>
+          <p class="body-copy">Camadas de sabor, contrastes de textura e receitas que respeitam o produto. Uma cozinha direta, generosa e cheia de personalidade.</p>
+          <img class="img-platter" src="assets/619242422_17933049402153104_3548552737511147774_n.png" alt="Hambúrguer artesanal acompanhado de batatas e molhos" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 04 — HAMBÚRGUERES ===================== -->
+    <section class="hamburgueres bg-moss">
+      <div class="section-inner" data-reveal>
+        <div class="section-head dark">
+          <span class="number">04</span>
+          <span class="label">Hambúrgueres</span>
+        </div>
+        <div class="hamburgueres-grid">
+          <div class="hamburgueres-info">
+            <p class="eyebrow">Assinatura da casa</p>
+            <h2 class="title-display">Os sabores<br /><em>do RAÍZES.</em></h2>
+          </div>
+          <p class="hamburgueres-desc">Do pão ao molho, cada camada tem propósito. Clássicos intensos e criações que fazem da primeira mordida o começo de uma história.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 05 — BEBIDAS ===================== -->
+    <section class="section-shell bg-cream">
+      <div class="section-head">
+        <span class="number">05</span>
+        <span class="label">Bebidas &amp; acompanhamentos</span>
+      </div>
+      <div class="bebidas-grid" data-reveal>
+        <div class="bebidas-video-wrap">
+          <video src="assets/video-fondue.mp4" autoplay muted loop playsinline></video>
+          <div class="bebidas-caption bg-video-caption">
+            <p class="eyebrow">Fondue · Noites frias</p>
+          </div>
+        </div>
+        <div class="bebidas-text">
+          <p class="eyebrow">À mesa, tudo conversa</p>
+          <h2 class="title-display">Para<br /><em>acompanhar.</em></h2>
+          <div class="bebidas-list">
+            <p><span>Batatas douradas</span><span>01</span></p>
+            <p><span>Molhos da casa</span><span>02</span></p>
+            <p><span>Fondue na serra</span><span>03</span></p>
+            <p><span>Bebidas selecionadas</span><span>04</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 06 — AMBIENTE ===================== -->
+    <section class="section-shell bg-wood">
+      <div class="section-head dark">
+        <span class="number">06</span>
+        <span class="label">Ambiente</span>
+      </div>
+      <div class="ambiente-grid" data-reveal>
+        <div class="ambiente-figure">
+          <img src="assets/788764544_17964568809153104_5616361839745189710_n.png" alt="Montagem em camadas do hambúrguer RAÍZES sobre fundo escuro, no ambiente acolhedor do restaurante" />
+        </div>
+        <div class="ambiente-text">
+          <h2 class="title-display">Entre madeira,<br />sabores e<br /><em>aconchego.</em></h2>
+          <p>Uma casa que recebe como a serra: com calor, presença e histórias compartilhadas ao redor da mesa.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 07 — GALERIA ===================== -->
+    <section id="galeria" class="section-shell bg-background">
+      <div class="section-head">
+        <span class="number">07</span>
+        <span class="label">Galeria</span>
+      </div>
+      <div class="galeria-head">
+        <h2 class="title-display">Momentos<br /><em>RAÍZES.</em></h2>
+        <p class="hint">Clique para explorar sabores, encontros e detalhes da nossa cozinha.</p>
+      </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <button type="button" class="gallery-item" data-index="0" aria-label="Ampliar imagem 1" data-reveal>
+          <img src="assets/475942782_17894026002153104_267748791669483891_n_1.png" alt="Hambúrguer artesanal com queijo e batatas" loading="lazy" />
+          <span class="hover-veil bg-gallery-hover"></span>
+          <span class="hover-label">Ver imagem · 01</span>
+        </button>
+        <button type="button" class="gallery-item" data-index="1" aria-label="Ampliar imagem 2" data-reveal>
+          <img src="assets/566030978_17923373562153104_2081072187815283587_n_1.png" alt="Hambúrgueres servidos em panela sobre crochês coloridos" loading="lazy" />
+          <span class="hover-veil bg-gallery-hover"></span>
+          <span class="hover-label">Ver imagem · 02</span>
+        </button>
+        <button type="button" class="gallery-item" data-index="2" aria-label="Ampliar imagem 3" data-reveal style="transition-delay:120ms">
+          <img src="assets/619242422_17933049402153104_3548552737511147774_n.png" alt="Hambúrguer com onion rings, bacon e batatas" loading="lazy" />
+          <span class="hover-veil bg-gallery-hover"></span>
+          <span class="hover-label">Ver imagem · 03</span>
+        </button>
+        <button type="button" class="gallery-item" data-index="3" aria-label="Ampliar imagem 4" data-reveal style="transition-delay:120ms">
+          <img src="assets/788764544_17964568809153104_5616361839745189710_n.png" alt="Montagem em camadas de hambúrguer com bacon e queijo" loading="lazy" />
+          <span class="hover-veil bg-gallery-hover"></span>
+          <span class="hover-label">Ver imagem · 04</span>
+        </button>
+        <button type="button" class="gallery-item" data-index="4" aria-label="Ampliar imagem 5" data-reveal>
+          <img src="assets/802503629_17966573148153104_5516428622665713317_n_1.png" alt="Hambúrguer Raízes com batatas douradas" loading="lazy" />
+          <span class="hover-veil bg-gallery-hover"></span>
+          <span class="hover-label">Ver imagem · 05</span>
+        </button>
+        <button type="button" class="gallery-item" data-index="5" aria-label="Ampliar imagem 6" data-reveal style="transition-delay:120ms">
+          <img src="assets/burger-pao-preto.png" alt="Hambúrguer no pão preto com gergelim, molho roxo, queijo derretido e batatas" loading="lazy" />
+          <span class="hover-veil bg-gallery-hover"></span>
+          <span class="hover-label">Ver imagem · 06</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ===================== 08 — URUPEMA ===================== -->
+    <section class="urupema bg-deep">
+      <div class="wood-grain"></div>
+      <div class="urupema-inner section-inner" data-reveal>
+        <div class="section-head dark">
+          <span class="number">08</span>
+          <span class="label">Urupema</span>
+        </div>
+        <div class="urupema-grid">
+          <h2>Raízes em<br /><em>Urupema.</em></h2>
+          <div class="urupema-text">
+            <p>No frio mais intenso do Brasil, encontramos calor à mesa. A paisagem, o tempo e a gente da serra dão sabor ao que fazemos.</p>
+            <div class="urupema-divider"></div>
+            <p class="eyebrow urupema-coords">28° 00' S · 49° 35' W</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 09 — CONTATO ===================== -->
+    <section id="contato" class="section-shell bg-cream">
+      <div class="section-head">
+        <span class="number">09</span>
+        <span class="label">Localização &amp; contato</span>
+      </div>
+      <div class="contato-grid" data-reveal>
+        <div class="contato-text">
+          <p class="eyebrow">Venha para a serra</p>
+          <h2 class="title-display">Urupema<br /><em>Santa Catarina.</em></h2>
+          <p class="body-copy">Reserve um tempo para viver a experiência RAÍZES. Para pedidos, horários e localização exata, fale diretamente com a casa.</p>
+          <a href="https://wa.me/" target="_blank" rel="noreferrer" class="btn btn-default">Falar no WhatsApp
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+        <dl class="contato-list">
+          <div class="contato-row"><dt>Horário</dt><dd>Consulte o atendimento</dd></div>
+          <div class="contato-row"><dt>WhatsApp</dt><dd>Número a confirmar</dd></div>
+          <div class="contato-row"><dt>Instagram</dt><dd>@raizesurupema</dd></div>
+          <div class="contato-row"><dt>Endereço</dt><dd>Urupema — Santa Catarina</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===================== CTA FINAL ===================== -->
+    <section class="cta bg-gold">
+      <div class="cta-inner" data-reveal>
+        <h2>Sua mesa<br /><em>espera.</em></h2>
+        <a href="https://wa.me/" target="_blank" rel="noreferrer" class="btn btn-outline">Pedir / Reservar
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== RODAPÉ ===================== -->
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/482685051_623795050626260_3210924371191532665_n_-_Copia.png" alt="Logo RAÍZES URUPEMA" />
+          <p>RAÍZES URUPEMA</p>
+        </div>
+        <a href="https://instagram.com/raizesurupema" target="_blank" rel="noreferrer" class="footer-link">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          Instagram
+        </a>
+        <a href="#inicio" class="footer-link">Voltar ao topo
+          <svg class="icon rotate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+        </a>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 RAÍZES URUPEMA</span>
+        <span>Gastronomia com identidade da Serra</span>
+      </div>
+    </footer>
+
+    <!-- ===================== LIGHTBOX ===================== -->
+    <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Galeria ampliada">
+      <button type="button" class="btn btn-ghost" id="lbClose" aria-label="Fechar galeria">
+        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+      <button type="button" class="btn btn-ghost lb-prev" id="lbPrev" aria-label="Imagem anterior">
+        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+      </button>
+      <img id="lbImage" src="" alt="" />
+      <button type="button" class="btn btn-ghost lb-next" id="lbNext" aria-label="Próxima imagem">
+        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </button>
+      <p class="lb-counter" id="lbCounter"></p>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+/* ==========================================================================
+   RAÍZES URUPEMA — folha de estilos estática (equivalente ao projeto React)
+   ========================================================================== */
+
+:root {
+  --radius: 0.125rem;
+  --background: oklch(0.965 0.018 83);
+  --foreground: oklch(0.205 0.028 85);
+  --cream: oklch(0.94 0.028 82);
+  --warm-white: oklch(0.975 0.014 80);
+  --moss: oklch(0.355 0.065 131);
+  --deep: oklch(0.205 0.043 133);
+  --wood: oklch(0.33 0.064 55);
+  --gold: oklch(0.75 0.107 76);
+  --black-warm: oklch(0.13 0.015 63);
+  --muted-foreground: oklch(0.47 0.035 69);
+  --ring: var(--gold);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Manrope", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; border-color: var(--wood); margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+img, video { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+::selection { background: var(--gold); color: var(--deep); }
+
+main.site { overflow: clip; background-color: var(--background); color: var(--foreground); }
+
+/* ---------- Tipografia utilitária ---------- */
+.eyebrow { font-family: var(--font-sans); font-size: .64rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; }
+.title-display { font-family: var(--font-display); font-size: clamp(3.4rem, 7.2vw, 7.5rem); font-weight: 500; line-height: .86; }
+.body-copy { font-size: 1rem; line-height: 2; color: color-mix(in oklab, var(--wood) 75%, transparent); }
+.nav-link { position: relative; font-family: var(--font-sans); font-size: .61rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: color-mix(in oklab, var(--warm-white) 78%, transparent); }
+.nav-link::after { content: ""; position: absolute; inset: auto 0 -.45rem; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform .35s ease; }
+.nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+
+.section-shell { padding: 6rem 1.25rem; max-width: 100rem; margin-inline: auto; }
+.section-inner { width: 100%; max-width: 100rem; margin-inline: auto; }
+
+/* ---------- Fundos com gradiente (overlays) ---------- */
+.bg-hero-overlay { background: linear-gradient(180deg, color-mix(in oklab, var(--black-warm) 26%, transparent) 0%, color-mix(in oklab, var(--black-warm) 8%, transparent) 38%, color-mix(in oklab, var(--black-warm) 82%, transparent) 100%); }
+.bg-video-caption { background: linear-gradient(0deg, color-mix(in oklab, var(--black-warm) 76%, transparent), transparent); }
+.bg-gallery-hover { background: linear-gradient(0deg, color-mix(in oklab, var(--black-warm) 58%, transparent), transparent 55%); }
+.shadow-editorial { box-shadow: 0 12px 40px color-mix(in oklab, var(--black-warm) 16%, transparent); }
+.wood-grain { background-image: repeating-linear-gradient(88deg, transparent 0 42px, color-mix(in oklab, var(--gold) 25%, transparent) 43px, transparent 44px 92px); }
+
+/* ---------- Botão (equivalente ao componente shadcn) ---------- */
+.btn { display: inline-flex; flex-shrink: 0; align-items: center; justify-content: center; gap: .5rem; white-space: nowrap; font-family: var(--font-sans); font-size: .68rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; transition: color .2s ease, background-color .2s ease; height: 2.75rem; }
+.btn:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.btn-default { background: var(--moss); padding: .75rem 1.25rem; color: var(--warm-white); }
+.btn-default:hover { background: var(--deep); }
+.btn-gold { background: var(--gold); padding: .75rem 1.25rem; color: var(--deep); border: 1px solid color-mix(in oklab, var(--gold) 50%, transparent); }
+.btn-gold:hover { background: var(--warm-white); }
+.btn-outline { border: 1px solid currentColor; background: transparent; padding: .75rem 1.25rem; color: var(--deep); height: 3.5rem; padding-inline: 2rem; }
+.btn-outline:hover { background: var(--deep); color: var(--background); }
+.btn-ghost { background: transparent; padding: .5rem; color: currentColor; width: 2.75rem; height: 2.75rem; }
+.btn-ghost:hover { background: color-mix(in oklab, currentColor 10%, transparent); }
+.icon { width: 1rem; height: 1rem; stroke: currentColor; }
+.icon-lg { width: 1.25rem; height: 1.25rem; }
+svg[hidden], .icon-hidden { display: none !important; }
+
+/* ==========================================================================
+   Cabeçalho
+   ========================================================================== */
+.site-header { position: fixed; inset-inline: 0; top: 0; z-index: 50; padding-block: 1.25rem; background: transparent; transition: background-color .5s ease, padding .5s ease, box-shadow .5s ease, backdrop-filter .5s ease; }
+.site-header.is-scrolled { background: color-mix(in oklab, var(--deep) 96%, transparent); padding-block: .75rem; box-shadow: 0 12px 40px color-mix(in oklab, var(--black-warm) 16%, transparent); backdrop-filter: blur(12px); }
+.header-inner { margin-inline: auto; display: grid; max-width: 1600px; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 1rem; padding-inline: 1.25rem; }
+.brand { display: flex; min-width: 0; align-items: center; gap: .75rem; color: var(--warm-white); }
+.brand img { width: 2.75rem; height: 2.75rem; flex-shrink: 0; border-radius: 999px; object-fit: cover; box-shadow: 0 0 0 1px color-mix(in oklab, var(--warm-white) 30%, transparent); }
+.brand-name { font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; letter-spacing: .14em; }
+.brand-name small { display: block; font-family: var(--font-sans); font-size: .5rem; font-weight: 500; letter-spacing: .28em; }
+.main-nav { display: none; justify-content: center; gap: 2rem; }
+.header-actions { display: flex; align-items: center; gap: .5rem; }
+.header-actions .btn-gold { display: none; }
+.menu-toggle { color: var(--warm-white); }
+.mobile-nav { display: flex; flex-direction: column; border-top: 1px solid color-mix(in oklab, var(--warm-white) 15%, transparent); background: var(--deep); padding: 1.75rem 1.25rem; animation: fade-in .3s ease; }
+.mobile-nav[hidden] { display: none; }
+.mobile-nav a { border-bottom: 1px solid color-mix(in oklab, var(--warm-white) 10%, transparent); padding-block: 1rem; font-family: var(--font-display); font-size: 1.5rem; color: var(--warm-white); }
+.mobile-nav .btn { margin-top: 1.5rem; }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero { position: relative; min-height: 94svh; overflow: hidden; background: var(--deep); }
+.hero-media { position: absolute; inset: 0; transform-origin: center; transform: scale(1); }
+.hero-media.hero-zoom { animation: hero-zoom 14s cubic-bezier(.45, 0, .55, 1) infinite alternate; }
+@keyframes hero-zoom { 0% { transform: scale(1); } 100% { transform: scale(1.07); } }
+.hero-video { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; filter: blur(12px); transition: opacity 1.4s ease-out, filter 1.4s ease-out; }
+.hero-video.is-ready { opacity: 1; filter: blur(0); }
+.hero-overlay { position: absolute; inset: 0; }
+.hero-ring { pointer-events: none; position: absolute; right: -6rem; top: 4rem; width: 26rem; height: 26rem; border-radius: 999px; border: 1px solid color-mix(in oklab, var(--gold) 20%, transparent); animation: spin-slow 48s linear infinite; }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.hero-content { position: relative; z-index: 10; margin-inline: auto; display: flex; min-height: 94svh; max-width: 1600px; flex-direction: column; justify-content: flex-end; padding: 9rem 1.25rem 2.5rem; }
+.hero-content .eyebrow { overflow: hidden; color: color-mix(in oklab, var(--warm-white) 75%, transparent); opacity: 0; transform: translateY(1rem); transition: opacity .7s ease-out, transform .7s ease-out; }
+.hero-title { margin-top: 1.25rem; max-width: 64rem; font-family: var(--font-display); font-size: clamp(4rem, 12vw, 10.5rem); font-weight: 500; line-height: .76; color: var(--warm-white); opacity: 0; transform: translateY(2.5rem); transition: opacity .9s ease-out .15s, transform .9s ease-out .15s; }
+.hero-title em, .hero-title .accent { margin-left: 8vw; font-style: italic; color: var(--gold); display: inline-block; }
+.hero-row { margin-top: 2.5rem; display: grid; align-items: end; gap: 2rem; border-top: 1px solid color-mix(in oklab, var(--warm-white) 25%, transparent); padding-top: 1.25rem; opacity: 0; transform: translateY(1.5rem); transition: opacity .7s ease-out .3s, transform .7s ease-out .3s; }
+.hero-content.is-ready .eyebrow, .hero-content.is-ready .hero-title, .hero-content.is-ready .hero-row { opacity: 1; transform: translateY(0); }
+.hero-tagline { max-width: 28rem; font-family: var(--font-display); font-size: 1.5rem; line-height: 1.2; color: var(--warm-white); }
+.hero-scroll { display: flex; align-items: center; gap: .75rem; font-family: var(--font-sans); font-size: .62rem; font-weight: 600; text-transform: uppercase; letter-spacing: .25em; color: var(--warm-white); }
+.hero-scroll .icon { animation: bounce 1.4s infinite; }
+@keyframes bounce { 0%, 100% { transform: translateY(-15%); animation-timing-function: cubic-bezier(.8,0,1,1); } 50% { transform: translateY(0); animation-timing-function: cubic-bezier(0,0,.2,1); } }
+
+/* ==========================================================================
+   Scroll-reveal
+   ========================================================================== */
+[data-reveal] { opacity: 0; transform: translateY(2.75rem); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); will-change: opacity, transform; }
+[data-reveal="scale"] { transform: translateY(1.25rem) scale(.96); }
+[data-reveal].is-visible { opacity: 1; transform: translateY(0) scale(1); }
+
+/* ==========================================================================
+   Seção — Restaurante (01)
+   ========================================================================== */
+.section-head { display: flex; align-items: center; gap: 1.25rem; border-bottom: 1px solid color-mix(in oklab, var(--wood) 25%, transparent); padding-bottom: 1rem; }
+.section-head.dark { border-bottom-color: color-mix(in oklab, var(--warm-white) 20%, transparent); }
+.section-head .number { font-family: var(--font-display); font-size: 1.125rem; color: var(--moss); }
+.section-head.dark .number { color: var(--gold); }
+.section-head .label { font-family: var(--font-sans); font-size: .62rem; font-weight: 600; text-transform: uppercase; letter-spacing: .24em; color: color-mix(in oklab, var(--wood) 60%, transparent); }
+.section-head.dark .label { color: color-mix(in oklab, var(--warm-white) 58%, transparent); }
+
+.bg-cream { background: var(--cream); }
+.bg-background { background: var(--background); }
+.bg-deep { background: var(--deep); color: var(--warm-white); }
+.bg-moss { background: var(--moss); color: var(--warm-white); }
+.bg-wood { background: var(--wood); color: var(--warm-white); }
+.bg-gold { background: var(--gold); color: var(--deep); }
+
+.restaurante-grid { margin-top: 3.5rem; display: grid; gap: 3rem; }
+.restaurante-text p.eyebrow { color: var(--moss); }
+.restaurante-text h2 { margin-top: 1.25rem; }
+.restaurante-text .body-copy { margin-top: 2rem; max-width: 32rem; }
+.restaurante-figure { position: relative; }
+.restaurante-figure img { aspect-ratio: 4 / 3; width: 100%; object-fit: cover; }
+.restaurante-figure figcaption { margin-top: .75rem; display: flex; justify-content: space-between; border-top: 1px solid color-mix(in oklab, var(--wood) 25%, transparent); padding-top: .75rem; font-size: .62rem; text-transform: uppercase; letter-spacing: .2em; color: color-mix(in oklab, var(--wood) 65%, transparent); }
+
+/* ==========================================================================
+   Seção — Manifesto (02)
+   ========================================================================== */
+.manifesto { position: relative; display: flex; min-height: 78svh; align-items: center; overflow: hidden; padding: 6rem 1.25rem; }
+.manifesto-ring { position: absolute; right: -5rem; top: 50%; width: 36rem; height: 36rem; transform: translateY(-50%); border-radius: 999px; border: 1px solid color-mix(in oklab, var(--gold) 15%, transparent); }
+.manifesto-inner { position: relative; margin-inline: auto; width: 100%; max-width: 1600px; }
+.manifesto-text { margin-top: 5rem; max-width: 80rem; font-family: var(--font-display); font-size: clamp(3.2rem, 8.4vw, 9rem); font-weight: 500; line-height: .88; }
+.manifesto-text em { color: var(--gold); font-style: italic; }
+
+/* ==========================================================================
+   Seção — Gastronomia (03)
+   ========================================================================== */
+.gastronomia-grid { margin-top: 3.5rem; display: grid; gap: 2rem; }
+.gastronomia-grid img { width: 100%; object-fit: cover; }
+.gastronomia-grid .img-table { aspect-ratio: 5 / 6; }
+.gastronomia-grid .img-platter { margin-top: 4rem; aspect-ratio: 4 / 5; }
+.gastronomia-text .body-copy { margin-top: 1.75rem; max-width: 24rem; }
+
+/* ==========================================================================
+   Seção — Hambúrgueres (04)
+   ========================================================================== */
+.hamburgueres { padding-block: 5rem; }
+.hamburgueres-grid { margin-top: 3.5rem; display: grid; gap: 2.5rem; align-items: end; }
+.hamburgueres-grid .eyebrow { color: var(--gold); }
+.hamburgueres-grid h2 { margin-top: 1.25rem; }
+.hamburgueres-desc { max-width: 28rem; font-size: 1rem; line-height: 2; color: color-mix(in oklab, var(--warm-white) 68%, transparent); }
+
+/* ==========================================================================
+   Seção — Bebidas (05)
+   ========================================================================== */
+.bebidas-grid { margin-top: 3.5rem; display: grid; gap: 3rem; }
+.bebidas-video-wrap { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--wood); }
+.bebidas-video-wrap video { width: 100%; height: 100%; object-fit: cover; }
+.bebidas-caption { position: absolute; inset-inline: 0; bottom: 0; padding: 1.25rem; color: var(--warm-white); }
+.bebidas-text .eyebrow { color: var(--moss); }
+.bebidas-text h2 { margin-top: 1.25rem; }
+.bebidas-list { margin-top: 2.5rem; border-block: 1px solid color-mix(in oklab, var(--wood) 25%, transparent); padding-block: 1.5rem; font-family: var(--font-display); font-size: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+.bebidas-list p { display: flex; justify-content: space-between; }
+
+/* ==========================================================================
+   Seção — Ambiente (06)
+   ========================================================================== */
+.ambiente-grid { margin-top: 4rem; display: grid; gap: 2.5rem; }
+.ambiente-grid img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.ambiente-text { display: flex; flex-direction: column; justify-content: space-between; }
+.ambiente-text em { color: var(--gold); font-style: italic; }
+.ambiente-text p { margin-top: 2.5rem; max-width: 24rem; font-size: 1rem; line-height: 2; color: color-mix(in oklab, var(--warm-white) 70%, transparent); }
+
+/* ==========================================================================
+   Seção — Galeria (07)
+   ========================================================================== */
+.galeria-head { margin-top: 3.5rem; display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; }
+.galeria-head .hint { display: none; max-width: 20rem; text-align: right; font-size: .875rem; line-height: 1.5; color: var(--muted-foreground); }
+.gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 18rem; gap: .65rem; margin-top: 3.5rem; }
+.gallery-item { position: relative; min-width: 0; overflow: hidden; background: var(--warm-white); text-align: left; }
+.gallery-item img { width: 100%; height: 100%; object-fit: contain; transition: transform .7s ease-out; }
+.gallery-item:hover img { transform: scale(1.04); }
+.gallery-item .hover-veil { position: absolute; inset: 0; opacity: 0; transition: opacity .5s ease; }
+.gallery-item:hover .hover-veil { opacity: 1; }
+.gallery-item .hover-label { position: absolute; bottom: 1rem; left: 1rem; font-family: var(--font-sans); font-size: .6rem; text-transform: uppercase; letter-spacing: .22em; color: var(--warm-white); opacity: 0; transform: translateY(.25rem); transition: opacity .5s ease, transform .5s ease; }
+.gallery-item:hover .hover-label { opacity: 1; transform: translateY(0); }
+@media (min-width: 48rem) {
+  .gallery-grid { grid-auto-rows: 36rem; gap: 1rem; }
+}
+
+/* ==========================================================================
+   Seção — Urupema (08)
+   ========================================================================== */
+.urupema { position: relative; overflow: hidden; padding-block: 6rem; }
+.urupema .wood-grain { position: absolute; inset: 0; opacity: .1; }
+.urupema-inner { position: relative; }
+.urupema-grid { margin-top: 4rem; display: grid; gap: 2.5rem; }
+.urupema-grid h2 { font-family: var(--font-display); font-size: clamp(4rem, 9vw, 9rem); line-height: .83; }
+.urupema-grid em { color: var(--gold); font-style: italic; }
+.urupema-text p { font-size: 1.25rem; line-height: 2.25rem; color: color-mix(in oklab, var(--warm-white) 75%, transparent); }
+.urupema-divider { margin-top: 3rem; height: 1px; width: 100%; background: color-mix(in oklab, var(--gold) 50%, transparent); }
+.urupema-coords { margin-top: 1.25rem; color: var(--gold); }
+
+/* ==========================================================================
+   Seção — Contato (09)
+   ========================================================================== */
+.contato-grid { margin-top: 3.5rem; display: grid; gap: 3.5rem; }
+.contato-text .eyebrow { color: var(--moss); }
+.contato-text h2 { margin-top: 1.25rem; }
+.contato-text .body-copy { margin-top: 2rem; max-width: 28rem; }
+.contato-text .btn { margin-top: 2.25rem; }
+.contato-list { border-block: 1px solid color-mix(in oklab, var(--wood) 25%, transparent); }
+.contato-row { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding-block: 1.75rem; border-top: 1px solid color-mix(in oklab, var(--wood) 25%, transparent); }
+.contato-row:first-child { border-top: none; }
+.contato-row dt { font-family: var(--font-sans); font-size: .64rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--moss); }
+.contato-row dd { font-family: var(--font-display); font-size: 1.25rem; color: var(--wood); }
+
+/* ==========================================================================
+   CTA final
+   ========================================================================== */
+.cta { padding: 5rem 1.25rem; }
+.cta-inner { margin-inline: auto; display: grid; max-width: 1600px; gap: 2rem; align-items: end; }
+.cta-inner h2 { font-family: var(--font-display); font-size: clamp(3.2rem, 8vw, 8rem); line-height: .84; }
+.cta-inner em { font-style: italic; }
+
+/* ==========================================================================
+   Rodapé
+   ========================================================================== */
+.site-footer { background: var(--black-warm); color: var(--warm-white); padding: 3rem 1.25rem; }
+.footer-top { margin-inline: auto; display: grid; max-width: 1600px; gap: 2.5rem; border-bottom: 1px solid color-mix(in oklab, var(--warm-white) 15%, transparent); padding-bottom: 2.5rem; }
+.footer-brand img { width: 4rem; height: 4rem; border-radius: 999px; object-fit: cover; }
+.footer-brand p { margin-top: 1rem; font-family: var(--font-display); font-size: 1.5rem; }
+.footer-link { display: flex; align-items: center; gap: .5rem; font-size: .875rem; color: color-mix(in oklab, var(--warm-white) 70%, transparent); }
+.footer-link .icon.rotate { transform: rotate(180deg); }
+.footer-bottom { margin-inline: auto; margin-top: 1.5rem; display: flex; max-width: 1600px; flex-wrap: wrap; justify-content: space-between; gap: .75rem; font-size: .58rem; text-transform: uppercase; letter-spacing: .18em; color: color-mix(in oklab, var(--warm-white) 45%, transparent); }
+
+/* ==========================================================================
+   Lightbox
+   ========================================================================== */
+.lightbox { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: color-mix(in oklab, var(--black-warm) 96%, transparent); padding: 1rem; }
+.lightbox[hidden] { display: none; }
+.lightbox img { max-height: 86vh; max-width: 88vw; object-fit: contain; }
+.lightbox .btn-ghost { position: absolute; top: 1rem; right: 1rem; z-index: 10; color: var(--warm-white); }
+.lightbox .lb-prev { top: 50%; left: .75rem; right: auto; transform: translateY(-50%); }
+.lightbox .lb-next { top: 50%; right: .75rem; transform: translateY(-50%); }
+.lightbox .lb-counter { position: absolute; bottom: 1.25rem; font-size: .65rem; text-transform: uppercase; letter-spacing: .2em; color: color-mix(in oklab, var(--warm-white) 60%, transparent); }
+
+/* ==========================================================================
+   Breakpoints (md: 768px / lg: 1024px) — replicam as variantes usadas no original
+   ========================================================================== */
+@media (min-width: 40rem) {
+  .header-actions .btn-gold { display: inline-flex; }
+}
+
+@media (min-width: 48rem) {
+  .header-inner { grid-template-columns: auto 1fr auto; padding-inline: 2.5rem; }
+  .main-nav { display: flex; }
+  .menu-toggle { display: none; }
+  .mobile-nav { display: none !important; }
+  .hero-content { padding-inline: 2.5rem; padding-bottom: 3.5rem; }
+  .manifesto { padding-inline: 2.5rem; }
+  .section-shell { padding: 8rem 2.5rem; }
+  .restaurante-figure { grid-column: span 12 / span 12; }
+  .gastronomia-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: start; }
+  .gastronomia-grid .img-table-wrap { grid-column: span 7 / span 7; }
+  .gastronomia-text { grid-column: span 5 / span 5; padding-top: 5rem; }
+  .bebidas-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; }
+  .bebidas-text { padding-left: 8vw; }
+  .galeria-head .hint { display: block; }
+  .contato-row dd { font-size: 1.5rem; }
+  .cta-inner { grid-template-columns: 1fr auto; }
+  .footer-top { grid-template-columns: 1fr auto auto; align-items: end; }
+}
+
+@media (min-width: 64rem) {
+  .header-inner { padding-inline: 4rem; }
+  .hero-content { padding-inline: 4rem; }
+  .manifesto { padding-inline: 4rem; }
+  .section-shell { padding: 10rem 4rem; }
+  .restaurante-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: end; }
+  .restaurante-text { grid-column: span 5 / span 5; padding-bottom: 4rem; }
+  .restaurante-figure { grid-column: span 7 / span 7; }
+  .hamburgueres-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  .hamburgueres-info { grid-column: span 7 / span 7; }
+  .hamburgueres-desc { grid-column: span 5 / span 5; padding-bottom: .75rem; }
+  .ambiente-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  .ambiente-grid .ambiente-figure { grid-column: span 7 / span 7; }
+  .ambiente-text { grid-column: span 5 / span 5; padding-block: 3.5rem; }
+  .urupema-grid { grid-template-columns: 1fr .65fr; }
+  .urupema-text { padding-top: 7rem; }
+  .contato-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lightbox .lb-prev { left: 2rem; }
+  .lightbox .lb-next { right: 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .hero-media.hero-zoom { animation: none; }
+  [data-reveal] { opacity: 1; transform: none; }
+}
