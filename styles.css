@@ -75,9 +75,9 @@ svg[hidden], .icon-hidden { display: none !important; }
 /* ==========================================================================
    Cabeçalho
    ========================================================================== */
-.site-header { position: fixed; inset-inline: 0; top: 0; z-index: 50; padding-block: 1.25rem; background: transparent; transition: background-color .5s ease, padding .5s ease, box-shadow .5s ease, backdrop-filter .5s ease; }
-.site-header.is-scrolled { background: color-mix(in oklab, var(--deep) 96%, transparent); padding-block: .75rem; box-shadow: 0 12px 40px color-mix(in oklab, var(--black-warm) 16%, transparent); backdrop-filter: blur(12px); }
-.header-inner { margin-inline: auto; display: grid; max-width: 1600px; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 1rem; padding-inline: 1.25rem; }
+.site-header { position: fixed; inset-inline: 0; top: 0; z-index: 50; padding-top: calc(1.25rem + env(safe-area-inset-top)); padding-bottom: 1.25rem; background: transparent; transition: background-color .5s ease, padding .5s ease, box-shadow .5s ease, backdrop-filter .5s ease; }
+.site-header.is-scrolled { background: color-mix(in oklab, var(--deep) 96%, transparent); padding-top: calc(.75rem + env(safe-area-inset-top)); padding-bottom: .75rem; box-shadow: 0 12px 40px color-mix(in oklab, var(--black-warm) 16%, transparent); backdrop-filter: blur(12px); }
+.header-inner { margin-inline: auto; display: grid; max-width: 1600px; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 1rem; padding-inline: calc(1.25rem + env(safe-area-inset-left)) calc(1.25rem + env(safe-area-inset-right)); }
 .brand { display: flex; min-width: 0; align-items: center; gap: .75rem; color: var(--warm-white); }
 .brand img { width: 2.75rem; height: 2.75rem; flex-shrink: 0; border-radius: 999px; object-fit: cover; box-shadow: 0 0 0 1px color-mix(in oklab, var(--warm-white) 30%, transparent); }
 .brand-name { font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; letter-spacing: .14em; }
@@ -86,7 +86,7 @@ svg[hidden], .icon-hidden { display: none !important; }
 .header-actions { display: flex; align-items: center; gap: .5rem; }
 .header-actions .btn-gold { display: none; }
 .menu-toggle { color: var(--warm-white); }
-.mobile-nav { display: flex; flex-direction: column; border-top: 1px solid color-mix(in oklab, var(--warm-white) 15%, transparent); background: var(--deep); padding: 1.75rem 1.25rem; animation: fade-in .3s ease; }
+.mobile-nav { display: flex; flex-direction: column; border-top: 1px solid color-mix(in oklab, var(--warm-white) 15%, transparent); background: var(--deep); padding: 1.75rem calc(1.25rem + env(safe-area-inset-right)) calc(1.75rem + env(safe-area-inset-bottom)) calc(1.25rem + env(safe-area-inset-left)); animation: fade-in .3s ease; }
 .mobile-nav[hidden] { display: none; }
 .mobile-nav a { border-bottom: 1px solid color-mix(in oklab, var(--warm-white) 10%, transparent); padding-block: 1rem; font-family: var(--font-display); font-size: 1.5rem; color: var(--warm-white); }
 .mobile-nav .btn { margin-top: 1.5rem; }
@@ -264,10 +264,10 @@ svg[hidden], .icon-hidden { display: none !important; }
 .lightbox { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: color-mix(in oklab, var(--black-warm) 96%, transparent); padding: 1rem; }
 .lightbox[hidden] { display: none; }
 .lightbox img { max-height: 86vh; max-width: 88vw; object-fit: contain; }
-.lightbox .btn-ghost { position: absolute; top: 1rem; right: 1rem; z-index: 10; color: var(--warm-white); }
-.lightbox .lb-prev { top: 50%; left: .75rem; right: auto; transform: translateY(-50%); }
-.lightbox .lb-next { top: 50%; right: .75rem; transform: translateY(-50%); }
-.lightbox .lb-counter { position: absolute; bottom: 1.25rem; font-size: .65rem; text-transform: uppercase; letter-spacing: .2em; color: color-mix(in oklab, var(--warm-white) 60%, transparent); }
+.lightbox .btn-ghost { position: absolute; top: calc(1rem + env(safe-area-inset-top)); right: calc(1rem + env(safe-area-inset-right)); z-index: 10; color: var(--warm-white); }
+.lightbox .lb-prev { top: 50%; left: calc(.75rem + env(safe-area-inset-left)); right: auto; transform: translateY(-50%); }
+.lightbox .lb-next { top: 50%; right: calc(.75rem + env(safe-area-inset-right)); transform: translateY(-50%); }
+.lightbox .lb-counter { position: absolute; bottom: calc(1.25rem + env(safe-area-inset-bottom)); font-size: .65rem; text-transform: uppercase; letter-spacing: .2em; color: color-mix(in oklab, var(--warm-white) 60%, transparent); }
 
 /* ==========================================================================
    Breakpoints (md: 768px / lg: 1024px) — replicam as variantes usadas no original
@@ -284,7 +284,6 @@ svg[hidden], .icon-hidden { display: none !important; }
   .hero-content { padding-inline: 2.5rem; padding-bottom: 3.5rem; }
   .manifesto { padding-inline: 2.5rem; }
   .section-shell { padding: 8rem 2.5rem; }
-  .restaurante-figure { grid-column: span 12 / span 12; }
   .gastronomia-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: start; }
   .gastronomia-grid .img-table-wrap { grid-column: span 7 / span 7; }
   .gastronomia-text { grid-column: span 5 / span 5; padding-top: 5rem; }
@@ -313,12 +312,14 @@ svg[hidden], .icon-hidden { display: none !important; }
   .urupema-grid { grid-template-columns: 1fr .65fr; }
   .urupema-text { padding-top: 7rem; }
   .contato-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .lightbox .lb-prev { left: 2rem; }
-  .lightbox .lb-next { right: 2rem; }
+  .lightbox .lb-prev { left: calc(2rem + env(safe-area-inset-left)); }
+  .lightbox .lb-next { right: calc(2rem + env(safe-area-inset-right)); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .hero-media.hero-zoom { animation: none; }
   [data-reveal] { opacity: 1; transform: none; }
+  .hero-video { display: none; }
+  .hero-media { background: url("assets/802503629_17966573148153104_5516428622665713317_n_1.png") center / cover no-repeat; }
 }
