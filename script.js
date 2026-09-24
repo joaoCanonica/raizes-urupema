@@ -38,7 +38,7 @@
     });
   });
 
-  /* ---------- Hero: entrada animada assim que a página carrega ---------- */
+  /* ---------- Hero: vídeo visível assim que a página carrega ---------- */
   var heroMedia = document.getElementById("heroMedia");
   var heroVideo = document.getElementById("heroVideo");
   var heroContent = document.getElementById("heroContent");
@@ -47,9 +47,45 @@
     requestAnimationFrame(function () {
       heroMedia.classList.add("hero-zoom");
       heroVideo.classList.add("is-ready");
-      heroContent.classList.add("is-ready");
     });
   });
+
+  /* ---------- Abertura: cortina em vídeo com botão de pular ---------- */
+  var introOverlay = document.getElementById("introOverlay");
+  var introSkip = document.getElementById("introSkip");
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function revealHeroContent() {
+    heroContent.classList.add("is-ready");
+  }
+
+  if (introOverlay && !prefersReducedMotion) {
+    document.body.classList.add("intro-active");
+    document.body.style.overflow = "hidden";
+    header.setAttribute("inert", "");
+
+    var introEnded = false;
+    var introTimer = window.setTimeout(endIntro, 3600);
+
+    function endIntro() {
+      if (introEnded) return;
+      introEnded = true;
+      window.clearTimeout(introTimer);
+      document.body.classList.remove("intro-active");
+      document.body.style.overflow = "";
+      header.removeAttribute("inert");
+      introOverlay.classList.add("is-leaving");
+      revealHeroContent();
+      window.setTimeout(function () {
+        introOverlay.hidden = true;
+      }, 900);
+    }
+
+    introSkip.addEventListener("click", endIntro);
+  } else {
+    if (introOverlay) introOverlay.hidden = true;
+    revealHeroContent();
+  }
 
   /* ---------- Scroll-reveal (IntersectionObserver) ---------- */
   var revealTargets = document.querySelectorAll("[data-reveal]");
